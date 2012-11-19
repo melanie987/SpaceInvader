@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -59,8 +61,10 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		
 	}
 
+	
 
 
 
@@ -97,5 +101,21 @@ public class SpaceInvaderView extends View {
 		int y = computeSize(heightMeasureSpec,TARGET_HEIGHT);
 		this.setMeasuredDimension(x,y);
 	}
+	
+	  private RefreshHandler mRedrawHandler = new RefreshHandler();
 
+	    class RefreshHandler extends Handler {
+
+	        @Override
+	        public void handleMessage(Message msg) {
+	            SpaceInvaderView.this.update();
+	            SpaceInvaderView.this.invalidate();
+	        }
+
+	    }
+
+		public void update() {
+			// TODO Auto-generated method stub
+			
+		}
 }
